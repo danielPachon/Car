@@ -1,13 +1,14 @@
-package co.edu.eam;
+package com.parcial.Concesionario;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ParcialApplication {
+public class ConcesionarioApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ParcialApplication.class, args);
+
+		SpringApplication.run(ConcesionarioApplication.class, args);
 	}
 
 }

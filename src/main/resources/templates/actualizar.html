@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar</title>
+</head>
+<body>
+    <h1>Datos del carro</h1>
+    <a th:href="@{/}">Regresar</a>
+    <br>
+    <form th:action="@{/guardar}" method="post" th:object="${car}">
+        <input type="hidden" name="id" th:field="*{id}">
+        <br>
+        <label for="marca">Marca</label>
+        <input type="text" id="marca" name="marca" th:field="*{marca}">
+        <span th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}">Error en el marca</span>
+        <br>
+        <label for="modelo">Modelo</label>
+        <input type="text" id="modelo" name="modelo" th:field="*{modelo}">
+        <span th:if="${#fields.hasErrors('modelo')}" th:errors="*{modelo}">Error en el modelo</span>
+        <br>
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" th:field="*{color}">
+        <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Error en el color</span>
+        <br>
+        <label for="year">Año</label>
+        <input type="text" id="year" name="year" th:field="*{year}">
+        <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Error en el programa</span>
+        <br>
+        <label for="tipoAuto">TipoAuto</label>
+        <select id="tipoAuto" name="tipoAuto" th:field="*{tipoAuto}">
+            <option value="automovil" th:default="automovil">automovil</option>
+            <option value="camioneta">camioneta</option>
+            <option value="carga pesada">carga pesada</option>
+        </select>
+        <span th:if="${#fields.hasErrors('tipoAuto')}" th:errors="*{tipoAuto}">Error en el tipoAuto</span>
+        <br>
+        <label for="cilindros">Cilindraje</label>
+        <input type="text" id="cilindros" name="cilindros" th:field="*{cilindros}">
+        <span th:if="${#fields.hasErrors('cilindros')}" th:errors="*{cilindros}">Error en el cilindraje</span>
+        <br>
+        <label for="tipoCombustible">Tipo Combustible</label>
+        <select id="tipoCombustible" name="tipoCombustible" th:field="*{tipoCombustible}">
+            <option value="Hibrido" th:default="Hibrido">Hibrido</option>
+            <option value="Gasolina">Gasolina</option>
+            <option value="Diesel">Diesel</option>
+        </select>
+        <span th:if="${#fields.hasErrors('tipoCombustible')}" th:errors="*{tipoCombustible}">Error en el tipo Combustible</span>
+        <br>
+        <label for="price">Precio</label>
+        <input type="text" id="price" name="price" th:field="*{price}">
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error en el precio</span>
+        <br>
+        <input type="submit" name="guardar" value="Guardar">
+    </form>
+</body>
+</html>

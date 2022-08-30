@@ -1,10 +1,10 @@
-package co.edu.eam;
+package com.parcial.Concesionario;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ParcialApplicationTests {
+class ConcesionarioApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -5,31 +5,44 @@
     <title>Parcial</title>
 </head>
 <body>
-  <h1>Construcción App Empresariales</h1>
-  <header th:replace="sub-templates/plantilla :: header"></header>
+    <h1>Mostrando los datos de los carros</h1>
+    <br>
+    <a th:href="@{/registrar}">Registrar Estudiante</a>
+    <div th:if="${cars != null and !cars.empty}">
+        <table>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Año</th>
+                <th>Tipo Auto</th>
+                <th>Cilindraje</th>
+                <th>Tipo Combustible</th>
+                <th>Precio</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            </tr>
 
-  <a th:href="@{/registrar}">Registrar Estudiante</a>
-  <div th:if="${ estudiantes != null and !estudiantes.isEmpty() }">
-      <table border="1">
-          <tr>
-              <th>Marca</th>
-              <th>Modelo</th>
-              <th>Color</th>
-              <th>Año</th>
-              <th>Tipo Auto</th>
-              <th>Cilindraje</th>
-              <th>Tipo Combustible</th>
-              <th>Precio</th>
-          </tr>
-          <tr th:each="persona : ${estudiantes}">
-              <td><a th:href="@{/editar/} + ${estudiante.id}" th:text="Editar"></a></td>
-              <td><a th:href="@{/eliminar/} + ${estudiante.id}" th:text="Eliminar"></a></td>
-          </tr>
-      </table>
-  </div>
-  <div th:if="${ estudiantes == null or estudiantes.isEmpty() }">
-    <h3>¡La lista está vacía!</h3>
-  </div>
-  <footer th:replace="sub-templates/plantilla :: footer"></footer>
+            <tr th:each="car : ${cars}">
+                <td th:text="${car.marca}"></td>
+                <td th:text="${car.modelo}"></td>
+                <td th:text="${car.color}"></td>
+                <td th:text="${car.year}"></td>
+                <td th:text="${car.tipoAuto}"></td>
+                <td th:text="${car.cilindros}"></td>
+                <td th:text="${car.tipoCombustible}"></td>
+                <td th:text="${car.price}"></td>
+                <td>
+                    <a th:href="@{/modificar/} + ${car.id}" th:text="Modificar"></a>
+                </td>
+                <td>
+                    <a th:href="@{/eliminar/} + ${car.id}" th:text="Eliminar"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${cars == null or cars.empty}">
+        <h3>No hay carros registrados.</h3>
+    </div>
 </body>
 </html>
