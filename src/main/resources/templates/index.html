@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Parcial</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
 </head>
 <body>
     <h1>Mostrando los datos de los carros</h1>
     <br>
     <a th:href="@{/registrar}">Registrar Estudiante</a>
-    <div th:if="${cars != null and !cars.empty}">
+    <div th:if="${cars != null and !cars.empty}" class="fixed_headers">
         <table>
             <tr>
                 <th>Marca</th>

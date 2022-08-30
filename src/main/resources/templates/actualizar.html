@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
     <title>Actualizar</title>
 </head>
 <body>
     <h1>Datos del carro</h1>
-    <a th:href="@{/}">Regresar</a>
     <br>
     <form th:action="@{/guardar}" method="post" th:object="${car}">
         <input type="hidden" name="id" th:field="*{id}">
@@ -52,6 +52,7 @@
         <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error en el precio</span>
         <br>
         <input type="submit" name="guardar" value="Guardar">
+        <a th:href="@{/}">Regresar</a>
     </form>
 </body>
 </html>
